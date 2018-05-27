@@ -1,8 +1,6 @@
-import moviepy.editor as mpy
+from moviepy.editor import *
 
-gif_name = 'Spongebob_GIF'
-fps = 12
-file_list = glob.glob('*.png')
-list.sort(file_list, key=lambda x: int(x.split('_')[1].split('.png')[0])) # Sort the images by #, this may need to be tweaked for your use case
-clip = mpy.ImageSequenceClip(file_list, fps=fps)
-clip.write_gif('{}.gif'.format(gif_name), fps=fps) 
+clip = (VideoFileClip("frozen_trailer.mp4")
+        .subclip((1,22.65),(1,23.2))
+        .resize(0.3))
+clip.write_gif("spongebob.gif")
